@@ -1,2 +1,2 @@
 #!/bin/bash
-docker buildx build -t front-end-img .
+docker buildx build -t example-frontend .

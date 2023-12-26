@@ -14,6 +14,10 @@ RUN rm go1.16.15.linux-amd64.tar.gz
 
 COPY . .
 ENV PATH=$PATH:/usr/local/go/bin
+ENV REQUEST_ORIGIN=http://localhost:5000
+
+# just for docs
+EXPOSE 8080
 
 # build it
 RUN go build
