@@ -15,6 +15,7 @@ RUN rm go1.16.15.linux-amd64.tar.gz
 COPY . .
 ENV PATH=$PATH:/usr/local/go/bin
 ENV REQUEST_ORIGIN=http://localhost:5000
+ENV REDIS_HOST=redis
 
 # just for docs
 EXPOSE 8080
