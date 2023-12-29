@@ -17,6 +17,11 @@ ENV PATH=$PATH:/usr/local/go/bin
 ENV REQUEST_ORIGIN=http://localhost:5000
 ENV REDIS_HOST=redis
 
+#ENV POSTGRES_HOST=5432 
+#ENV POSTGRES_USER=postgres
+#ENV POSTGRES_PASSWORD=postgres
+#ENV POSTGRES_DATABASE=postgres
+
 # just for docs
 EXPOSE 8080
 

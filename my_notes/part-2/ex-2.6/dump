@@ -1,0 +1,5 @@
+    environment:
+      - POSTGRES_HOST=db
+      - POSTGRES_USER=usuario
+      - POSTGRES_PASSWORD=senha
+      - POSTGRES_DATABASE=nome_database
