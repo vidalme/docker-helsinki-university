@@ -20,14 +20,12 @@ services:
       - ./database:/var/lib/postgresql/data
 
   frontend:
-    #image: "example-frontend"
+    image: example-frontend:v2
     ports:
       - 5000:5000
-    build:
-      context: ../../part-1/ex-1.12/example-frontend/
-      dockerfile: frontend.dockerfile
 
   backend:
+    image: example-backend:v2
     ports:
       - 8080:8080
     environment:
@@ -35,9 +33,6 @@ services:
       - POSTGRES_HOST=backend-db  # Specify the correct hostname or use the container name
       - POSTGRES_USER=postgres
       - POSTGRES_DATABASE=postgres
-    build:
-      context: ../../part-1/ex-1.13/example-backend/
-      dockerfile: backend.dockerfile
     depends_on:
       - db
 

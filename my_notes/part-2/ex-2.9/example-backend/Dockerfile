@@ -1,7 +1,7 @@
 FROM ubuntu
 
 # intalling curl and build-essential (used to compile C files with go, otherwise there is a bug)
-RUN apt update && apt install curl build-essential -y
+RUN apt update && apt install curl build-essential tree -y
 
 WORKDIR /app
 
@@ -14,8 +14,16 @@ RUN rm go1.16.15.linux-amd64.tar.gz
 
 COPY . .
 ENV PATH=$PATH:/usr/local/go/bin
-ENV REQUEST_ORIGIN=http://localhost:5000
+#changed this variable removing the 5000 port since we are using nginx as reverse proxy
+ENV REQUEST_ORIGIN=http://localhost
+#ENV REQUEST_ORIGIN=http://localhost:5000
 ENV REDIS_HOST=redis
+
+#vars for postgres
+#ENV POSTGRES_HOST=5432
+#ENV POSTGRES_USER=postgres
+#ENV POSTGRES_PASSWORD=postgres
+#ENV POSTGRES_DATABASE=postgres
 
 # just for docs
 EXPOSE 8080
