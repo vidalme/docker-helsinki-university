@@ -1,2 +1,5 @@
-http://52.87.165.143:5000/
-https://github.com/vidalme/willdo/tree/main
+project's link: http://54.86.169.191:3000/
+
+I had done this small frontend app with react
+I had done it a few months back with a ubuntu image installing manually node
+I am redoing it this time using a node image, just easier.
