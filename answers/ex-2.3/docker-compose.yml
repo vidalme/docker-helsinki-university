@@ -1,13 +1,16 @@
-version: "3.8"
+version: '3.8'
 
 services:
-  frontend:
-    image: "example-frontend"
-    ports:
-      - 5000:5000
 
-  backend:
-    image: "example-backend"
+  frontend-uh:
+    image: vidalme/frontend-uh
+    ports: 
+      - 5000:5000
+    container_name: frontend-uh-c
+
+  backend-uh:
+    image: vidalme/backend-uh
     ports:
       - 8080:8080
-
+    container_name: backend-uh-c
+  

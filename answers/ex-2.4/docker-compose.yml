@@ -1,16 +1,21 @@
-version: "3.8"
+version: '3.8'
 
 services:
-  frontend:
-    image: "example-frontend"
-    ports:
-      - 5000:5000
 
-  backend:
-    image: "example-backend"
+  frontend-uh:
+    image: vidalme/frontend-uh
+    ports: 
+      - 5000:5000
+    container_name: frontend-uh-c
+
+  backend-uh:
+    image: vidalme/backend-uh
     ports:
       - 8080:8080
-    build: ~/projects/docker-helsinki-university/my_notes/ex-1.13/example-backend
-  
-  redis:
-    image: "redis"
+    container_name: backend-uh-c
+
+  redis_se:
+    image: redis:7.2.4
+    container_name: redis_co
+    volumes:
+      - ./data:/data
