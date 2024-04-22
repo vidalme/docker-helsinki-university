@@ -1,4 +1,6 @@
 HELP.md
+database
+scaling-exercise
 /target/
 !.mvn/wrapper/maven-wrapper.jar
 

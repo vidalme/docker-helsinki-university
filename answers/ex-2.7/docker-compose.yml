@@ -1,31 +1,40 @@
-version: "3.8"
+  version: '3.8'
 
-services:
-  db:
-    image: postgres
-    restart: unless-stopped
-    environment:
-      - POSTGRES_PASSWORD=example
-    container_name: backend-db
-    volumes:
-      - ./database:/var/lib/postgresql/data
+  services:
 
-  frontend:
-    image: "example-frontend"
-    ports:
-      - 5000:5000
+    db:
+      image: postgres
+      restart: unless-stopped
+      container_name: backend-db
+      environment:
+        POSTGRES_PASSWORD: pg
+      
+      volumes:
+        - type: bind
+          source: ./database
+          target: /var/lib/postgresql/data
+      
+    frontend-uh:
+      image: vidalme/frontend-uh
+      ports: 
+        - 5000:5000
+      container_name: frontend-uh-c
 
-  backend:
-    image: "example-backend"
-    ports:
-      - 8080:8080
-    environment:
-      - POSTGRES_PASSWORD=example
-      - POSTGRES_HOST=backend-db  # Specify the correct hostname or use the container name
-      - POSTGRES_USER=postgres
-      - POSTGRES_DATABASE=postgres
-    depends_on:
-      - db
+    backend-uh:
+      image: vidalme/backend-uh
+      ports:
+        - 8080:8080
+      container_name: backend-uh-c
+      environment:
+        - POSTGRES_PASSWORD=pg
+        - POSTGRES_HOST=db 
+        # - POSTGRES_USER=postgres
+        # - POSTGRES_DATABASE=postgres
+      depends_on:
+        - db
 
-  redis:
-    image: "redis"
+    redis_se:
+      image: redis:7.2.4
+      container_name: redisco
+      volumes:
+        - ./data:/data

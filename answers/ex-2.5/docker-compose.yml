@@ -5,19 +5,16 @@ services:
       ports:
         - 3000:3000
       container_name: calculator
-
   compute:
       image: devopsdockeruh/scaling-exercise-compute
       environment:
-        - VIRTUAL_HOST=compute.colasloth.com
-      ports:
-        - 13011
-
+        - VIRTUAL_HOST=compute.localtest.me
   load-balancer:
       build: ./load-balancer
       image: load-balancer
-      volumes: 
+      volumes:
         - /var/run/docker.sock:/tmp/docker.sock:ro
       ports:
         - 80:80
       container_name: load-balancer
+
