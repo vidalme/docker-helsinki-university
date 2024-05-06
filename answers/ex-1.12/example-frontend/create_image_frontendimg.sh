@@ -1,2 +1,2 @@
 #!/bin/bash
-docker buildx build -t example-frontend .
+docker buildx build -t vidalme/frontend-uh .

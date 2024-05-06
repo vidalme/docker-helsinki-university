@@ -3,14 +3,17 @@ version: '3.8'
 services:
 
   frontend-uh:
-    image: vidalme/frontend-uh
+    build:
+      context: ../ex-1.12/example-frontend
     ports: 
       - 5000:5000
-    container_name: frontend-uh-c
+
+    container_name: frontend-uh
 
   backend-uh:
-    image: vidalme/backend-uh
-    ports:
+    build:
+      context: ../ex-1.13/example-backend
+    ports: 
       - 8080:8080
-    container_name: backend-uh-c
-  
+
+    container_name: backend-uh
